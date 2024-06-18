@@ -36,9 +36,14 @@ namespace ComercialSys
 
         private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           FrmCategoria frmcategoria = new FrmCategoria();
+            FrmCategoria frmcategoria = new FrmCategoria();
             frmcategoria.MdiParent = this;
             frmcategoria.Show();
+        }
+
+        private void cadastrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -37,6 +37,7 @@
             novoToolStripMenuItem1 = new ToolStripMenuItem();
             consultarToolStripMenuItem1 = new ToolStripMenuItem();
             usuárioToolStripMenuItem = new ToolStripMenuItem();
+            categoriaToolStripMenuItem = new ToolStripMenuItem();
             operaçãoToolStripMenuItem = new ToolStripMenuItem();
             pedidoToolStripMenuItem = new ToolStripMenuItem();
             novoToolStripMenuItem2 = new ToolStripMenuItem();
@@ -44,7 +45,6 @@
             históricoToolStripMenuItem = new ToolStripMenuItem();
             movimentoToolStripMenuItem = new ToolStripMenuItem();
             caixaToolStripMenuItem = new ToolStripMenuItem();
-            categoriaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,6 +63,7 @@
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "&Cadastros";
+            cadastrosToolStripMenuItem.Click += cadastrosToolStripMenuItem_Click;
             // 
             // cToolStripMenuItem
             // 
@@ -113,6 +114,13 @@
             usuárioToolStripMenuItem.Text = "&Usuário";
             usuárioToolStripMenuItem.Click += usuárioToolStripMenuItem_Click;
             // 
+            // categoriaToolStripMenuItem
+            // 
+            categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
+            categoriaToolStripMenuItem.Size = new Size(180, 22);
+            categoriaToolStripMenuItem.Text = "&Categoria";
+            categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
+            // 
             // operaçãoToolStripMenuItem
             // 
             operaçãoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { pedidoToolStripMenuItem });
@@ -158,13 +166,6 @@
             caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
             caixaToolStripMenuItem.Size = new Size(103, 22);
             caixaToolStripMenuItem.Text = "&Caixa";
-            // 
-            // categoriaToolStripMenuItem
-            // 
-            categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(180, 22);
-            categoriaToolStripMenuItem.Text = "&Categoria";
-            categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
             // 
             // FrmPrincipal
             // 

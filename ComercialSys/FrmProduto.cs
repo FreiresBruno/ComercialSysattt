@@ -22,6 +22,7 @@ namespace ComercialSys
         {
             mskCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             mskValor.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            
             Produto produto = new Produto(mskCodigo.Text
 
               , txtDescricao.Text
@@ -42,11 +43,43 @@ namespace ComercialSys
 
         private void FrmProduto_Load(object sender, EventArgs e)
         {
+            
 
         }
 
         private void btnObterPorID_Click(object sender, EventArgs e)
         {
+            if (btnObterPorID.Text == "&Obter por ID")
+            {
+                mskCodigo.Clear();
+                txtDescricao.Clear();
+                mskValor.Clear();
+                txtCategoria.Clear();
+                txtEstoqueMinimo.Clear();
+                txtClasseDesconto.Clear();
+                txtId.ReadOnly = false;
+                txtId.Focus();
+                btnObterPorID.Text = "&Obter por ID";
+            }
+            else
+            {
+                if (txtId.Text.Length > 0)
+                {
+                    Produto produto = Produto.ObterPorID(int.Parse(txtId.Text));
+                    produto.CodBarras = mskCodigo.Text;
+                    produto.Descricao = txtDescricao.Text;
+                    produto.ValoUnit = Convert.ToDouble(mskValor.Text);
+                    produto.UnidadeVenda = cmbUnidedeVendas.Text;
+                    produto.CategoriaId = int.Parse(txtCategoria.Text);
+                    produto.EstoqueMinimo = Convert.ToDouble(txtEstoqueMinimo.Text);
+                    produto.ClasseDesconto = Convert.ToDouble(txtClasseDesconto.Text);
+
+                    txtId.ReadOnly = true;
+                    btnObterPorID.Text = "&Obter por ID";
+                    btnEditar.Enabled = true;
+
+                }
+            }
 
         }
 
@@ -64,7 +97,8 @@ namespace ComercialSys
               , Convert.ToInt32(txtCategoria.Text)
               , Convert.ToDouble(txtEstoqueMinimo.Text)
               , Convert.ToDouble(txtClasseDesconto.Text)
-              , true);
+              
+              ) ;
             if (produto.Editar(produto.Id))
             {
                 MessageBox.Show($"o Produto {produto.Descricao} foi alterado com sucesso!");
@@ -76,9 +110,6 @@ namespace ComercialSys
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 } 

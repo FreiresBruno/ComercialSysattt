@@ -48,33 +48,43 @@
             groupBox1 = new GroupBox();
             label8 = new Label();
             txtId = new MaskedTextBox();
+            dataGridView1 = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            CodigodeBarras = new DataGridViewTextBoxColumn();
+            descricao = new DataGridViewTextBoxColumn();
+            valorunitario = new DataGridViewTextBoxColumn();
+            unidadedevenda = new DataGridViewTextBoxColumn();
+            categoriaID = new DataGridViewTextBoxColumn();
+            estoqueminimo = new DataGridViewTextBoxColumn();
+            classededesconto = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // txtCategoria
             // 
-            txtCategoria.Location = new Point(157, 202);
+            txtCategoria.Location = new Point(370, 206);
             txtCategoria.Name = "txtCategoria";
             txtCategoria.Size = new Size(190, 23);
             txtCategoria.TabIndex = 4;
             // 
             // txtDescricao
             // 
-            txtDescricao.Location = new Point(157, 102);
+            txtDescricao.Location = new Point(370, 106);
             txtDescricao.Name = "txtDescricao";
             txtDescricao.Size = new Size(190, 23);
             txtDescricao.TabIndex = 1;
             // 
             // txtClasseDesconto
             // 
-            txtClasseDesconto.Location = new Point(158, 260);
+            txtClasseDesconto.Location = new Point(371, 264);
             txtClasseDesconto.Name = "txtClasseDesconto";
             txtClasseDesconto.Size = new Size(190, 23);
             txtClasseDesconto.TabIndex = 6;
             // 
             // mskCodigo
             // 
-            mskCodigo.Location = new Point(157, 73);
+            mskCodigo.Location = new Point(370, 77);
             mskCodigo.Mask = "0 000000 000000";
             mskCodigo.Name = "mskCodigo";
             mskCodigo.Size = new Size(190, 23);
@@ -82,7 +92,7 @@
             // 
             // mskValor
             // 
-            mskValor.Location = new Point(157, 136);
+            mskValor.Location = new Point(370, 140);
             mskValor.Name = "mskValor";
             mskValor.Size = new Size(190, 23);
             mskValor.TabIndex = 2;
@@ -91,7 +101,7 @@
             // 
             cmbUnidedeVendas.FormattingEnabled = true;
             cmbUnidedeVendas.Items.AddRange(new object[] { "1 - METRO", "2 - UNIDADE", "3 - QUILOGRAMA", "4 - LITRO", "5 - CAIXA ", "6 - MILILITRO", "7 - PEÇA ", "8 - FARDO", "9 - FRASCO", "10 - PACOTE", "11 - GRAMA" });
-            cmbUnidedeVendas.Location = new Point(157, 168);
+            cmbUnidedeVendas.Location = new Point(370, 172);
             cmbUnidedeVendas.Name = "cmbUnidedeVendas";
             cmbUnidedeVendas.Size = new Size(190, 23);
             cmbUnidedeVendas.TabIndex = 3;
@@ -99,17 +109,16 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(40, 76);
+            label1.Location = new Point(253, 80);
             label1.Name = "label1";
             label1.Size = new Size(97, 15);
             label1.TabIndex = 8;
             label1.Text = "Código de barras";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(40, 105);
+            label2.Location = new Point(253, 109);
             label2.Name = "label2";
             label2.Size = new Size(58, 15);
             label2.TabIndex = 9;
@@ -118,7 +127,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(43, 139);
+            label3.Location = new Point(256, 143);
             label3.Name = "label3";
             label3.Size = new Size(77, 15);
             label3.TabIndex = 10;
@@ -127,7 +136,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(43, 171);
+            label4.Location = new Point(256, 175);
             label4.Name = "label4";
             label4.Size = new Size(102, 15);
             label4.TabIndex = 11;
@@ -136,7 +145,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(43, 210);
+            label5.Location = new Point(256, 214);
             label5.Name = "label5";
             label5.Size = new Size(72, 15);
             label5.TabIndex = 12;
@@ -145,7 +154,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(43, 234);
+            label6.Location = new Point(256, 238);
             label6.Name = "label6";
             label6.Size = new Size(94, 15);
             label6.TabIndex = 13;
@@ -153,7 +162,7 @@
             // 
             // btnInserir
             // 
-            btnInserir.Location = new Point(299, 295);
+            btnInserir.Location = new Point(512, 299);
             btnInserir.Name = "btnInserir";
             btnInserir.Size = new Size(94, 30);
             btnInserir.TabIndex = 7;
@@ -163,7 +172,7 @@
             // 
             // txtEstoqueMinimo
             // 
-            txtEstoqueMinimo.Location = new Point(157, 231);
+            txtEstoqueMinimo.Location = new Point(370, 235);
             txtEstoqueMinimo.Name = "txtEstoqueMinimo";
             txtEstoqueMinimo.Size = new Size(190, 23);
             txtEstoqueMinimo.TabIndex = 5;
@@ -171,7 +180,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(43, 263);
+            label7.Location = new Point(256, 267);
             label7.Name = "label7";
             label7.Size = new Size(109, 15);
             label7.TabIndex = 14;
@@ -179,7 +188,7 @@
             // 
             // btnObterPorID
             // 
-            btnObterPorID.Location = new Point(167, 295);
+            btnObterPorID.Location = new Point(380, 299);
             btnObterPorID.Name = "btnObterPorID";
             btnObterPorID.Size = new Size(94, 30);
             btnObterPorID.TabIndex = 7;
@@ -189,7 +198,7 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(26, 295);
+            btnEditar.Location = new Point(239, 299);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(94, 30);
             btnEditar.TabIndex = 7;
@@ -199,6 +208,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(dataGridView1);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label7);
@@ -218,9 +228,9 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
-            groupBox1.Location = new Point(137, 34);
+            groupBox1.Location = new Point(21, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(425, 342);
+            groupBox1.Size = new Size(861, 504);
             groupBox1.TabIndex = 15;
             groupBox1.TabStop = false;
             groupBox1.Text = "Produtos";
@@ -228,32 +238,90 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(43, 30);
+            label8.Location = new Point(256, 34);
             label8.Name = "label8";
             label8.Size = new Size(18, 15);
             label8.TabIndex = 8;
             label8.Text = "ID";
-            label8.Click += label1_Click;
             // 
             // txtId
             // 
-            txtId.Location = new Point(158, 30);
+            txtId.Location = new Point(371, 34);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(64, 23);
             txtId.TabIndex = 2;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, CodigodeBarras, descricao, valorunitario, unidadedevenda, categoriaID, estoqueminimo, classededesconto });
+            dataGridView1.Location = new Point(30, 370);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Size = new Size(804, 128);
+            dataGridView1.TabIndex = 15;
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.ReadOnly = true;
+            // 
+            // CodigodeBarras
+            // 
+            CodigodeBarras.HeaderText = "CODIGO DE BARRAS";
+            CodigodeBarras.Name = "CodigodeBarras";
+            CodigodeBarras.ReadOnly = true;
+            // 
+            // descricao
+            // 
+            descricao.HeaderText = "DESCRIÇÃO";
+            descricao.Name = "descricao";
+            descricao.ReadOnly = true;
+            // 
+            // valorunitario
+            // 
+            valorunitario.HeaderText = "VALOR UNITARIO";
+            valorunitario.Name = "valorunitario";
+            valorunitario.ReadOnly = true;
+            // 
+            // unidadedevenda
+            // 
+            unidadedevenda.HeaderText = "UNIDADE DE VENDA";
+            unidadedevenda.Name = "unidadedevenda";
+            unidadedevenda.ReadOnly = true;
+            // 
+            // categoriaID
+            // 
+            categoriaID.HeaderText = "CATEGORIAID";
+            categoriaID.Name = "categoriaID";
+            categoriaID.ReadOnly = true;
+            // 
+            // estoqueminimo
+            // 
+            estoqueminimo.HeaderText = "ESTOQUE MINIMO";
+            estoqueminimo.Name = "estoqueminimo";
+            estoqueminimo.ReadOnly = true;
+            // 
+            // classededesconto
+            // 
+            classededesconto.HeaderText = "CLASSE DE DESCONTO";
+            classededesconto.Name = "classededesconto";
+            classededesconto.ReadOnly = true;
+            // 
             // FrmProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1025, 565);
             Controls.Add(groupBox1);
             Name = "FrmProduto";
             Text = "FrmProduto";
             Load += FrmProduto_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -278,5 +346,14 @@
         private GroupBox groupBox1;
         private MaskedTextBox txtId;
         private Label label8;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn CodigodeBarras;
+        private DataGridViewTextBoxColumn descricao;
+        private DataGridViewTextBoxColumn valorunitario;
+        private DataGridViewTextBoxColumn unidadedevenda;
+        private DataGridViewTextBoxColumn categoriaID;
+        private DataGridViewTextBoxColumn estoqueminimo;
+        private DataGridViewTextBoxColumn classededesconto;
     }
 }
