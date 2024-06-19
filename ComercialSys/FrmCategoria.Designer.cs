@@ -210,6 +210,7 @@
             Controls.Add(txtBusca);
             Name = "FrmCategoria";
             Text = "Categoria";
+            Load += FrmCategoria_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

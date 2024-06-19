@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtCategoria = new TextBox();
             txtDescricao = new TextBox();
             txtClasseDesconto = new TextBox();
             mskCodigo = new MaskedTextBox();
@@ -46,8 +45,7 @@
             btnObterPorID = new Button();
             btnEditar = new Button();
             groupBox1 = new GroupBox();
-            label8 = new Label();
-            txtId = new MaskedTextBox();
+            cmbCategoria = new ComboBox();
             dataGridView1 = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             CodigodeBarras = new DataGridViewTextBoxColumn();
@@ -57,16 +55,11 @@
             categoriaID = new DataGridViewTextBoxColumn();
             estoqueminimo = new DataGridViewTextBoxColumn();
             classededesconto = new DataGridViewTextBoxColumn();
+            label8 = new Label();
+            txtId = new MaskedTextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // txtCategoria
-            // 
-            txtCategoria.Location = new Point(370, 206);
-            txtCategoria.Name = "txtCategoria";
-            txtCategoria.Size = new Size(190, 23);
-            txtCategoria.TabIndex = 4;
             // 
             // txtDescricao
             // 
@@ -105,6 +98,7 @@
             cmbUnidedeVendas.Name = "cmbUnidedeVendas";
             cmbUnidedeVendas.Size = new Size(190, 23);
             cmbUnidedeVendas.TabIndex = 3;
+            cmbUnidedeVendas.SelectedIndexChanged += cmbUnidedeVendas_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -159,6 +153,7 @@
             label6.Size = new Size(94, 15);
             label6.TabIndex = 13;
             label6.Text = "Estoque minimo";
+            label6.Click += label6_Click;
             // 
             // btnInserir
             // 
@@ -208,11 +203,11 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cmbCategoria);
             groupBox1.Controls.Add(dataGridView1);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(txtCategoria);
             groupBox1.Controls.Add(txtEstoqueMinimo);
             groupBox1.Controls.Add(txtClasseDesconto);
             groupBox1.Controls.Add(btnEditar);
@@ -235,22 +230,14 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Produtos";
             // 
-            // label8
+            // cmbCategoria
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(256, 34);
-            label8.Name = "label8";
-            label8.Size = new Size(18, 15);
-            label8.TabIndex = 8;
-            label8.Text = "ID";
-            // 
-            // txtId
-            // 
-            txtId.Location = new Point(371, 34);
-            txtId.Name = "txtId";
-            txtId.ReadOnly = true;
-            txtId.Size = new Size(64, 23);
-            txtId.TabIndex = 2;
+            cmbCategoria.FormattingEnabled = true;
+            cmbCategoria.Location = new Point(370, 206);
+            cmbCategoria.Name = "cmbCategoria";
+            cmbCategoria.Size = new Size(191, 23);
+            cmbCategoria.TabIndex = 16;
+            cmbCategoria.SelectedIndexChanged += txtCategoria_SelectedIndexChanged;
             // 
             // dataGridView1
             // 
@@ -310,6 +297,23 @@
             classededesconto.Name = "classededesconto";
             classededesconto.ReadOnly = true;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(256, 34);
+            label8.Name = "label8";
+            label8.Size = new Size(18, 15);
+            label8.TabIndex = 8;
+            label8.Text = "ID";
+            // 
+            // txtId
+            // 
+            txtId.Location = new Point(371, 34);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(64, 23);
+            txtId.TabIndex = 2;
+            // 
             // FrmProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -326,7 +330,6 @@
         }
 
         #endregion
-        private TextBox txtCategoria;
         private TextBox txtDescricao;
         private TextBox txtClasseDesconto;
         private MaskedTextBox mskCodigo;
@@ -355,5 +358,6 @@
         private DataGridViewTextBoxColumn categoriaID;
         private DataGridViewTextBoxColumn estoqueminimo;
         private DataGridViewTextBoxColumn classededesconto;
+        private ComboBox cmbCategoria;
     }
 }

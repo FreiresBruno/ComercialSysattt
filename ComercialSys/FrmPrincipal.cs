@@ -24,6 +24,13 @@ namespace ComercialSys
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
+            FrmLogin login = new();
+            //login.MdiParent = this;
+            //login.StartPosition = FormStartPosition.CenterScreen;
+            //this.Hide();
+            login.ShowDialog();
+
+            //tslUsuario.Text = Program.Usuario.Nome + " - " + Program.Usuario.Nivel.Nome;
 
         }
 
@@ -44,6 +51,13 @@ namespace ComercialSys
         private void cadastrosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void novoToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmPedido frmPedido = new();
+            frmPedido.MdiParent = this;
+            frmPedido.Show();
         }
     }
 }

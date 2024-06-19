@@ -22,28 +22,37 @@ namespace ComercialSys
         {
             mskCodigo.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             mskValor.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-            
+
             Produto produto = new Produto(mskCodigo.Text
+
 
               , txtDescricao.Text
               , Convert.ToDouble(mskValor.Text)
               , cmbUnidedeVendas.Text
-              , Convert.ToInt32(txtCategoria.Text)
+              , Categoria.ObterPorId(Convert.ToInt32(cmbCategoria.SelectedValue))
               , Convert.ToDouble(txtEstoqueMinimo.Text)
               , Convert.ToDouble(txtClasseDesconto.Text)
-                );
+                ) ;
 
             produto.Inserir();
             if (produto.Id > 0)
             {
                 MessageBox.Show($"Produto {produto.GetHashCode()} cadastrado com sucesso");
             }
+            else
+            {
+                MessageBox.Show($"Não foi possivel cadastrar esse produto");
+            }
+
 
         }
 
         private void FrmProduto_Load(object sender, EventArgs e)
         {
-            
+            var categorias = Categoria.ObterLista();
+            cmbCategoria.DataSource = categorias;
+            cmbCategoria.DisplayMember = "nome";
+            cmbCategoria.ValueMember = "id";
 
         }
 
@@ -54,7 +63,6 @@ namespace ComercialSys
                 mskCodigo.Clear();
                 txtDescricao.Clear();
                 mskValor.Clear();
-                txtCategoria.Clear();
                 txtEstoqueMinimo.Clear();
                 txtClasseDesconto.Clear();
                 txtId.ReadOnly = false;
@@ -70,7 +78,7 @@ namespace ComercialSys
                     produto.Descricao = txtDescricao.Text;
                     produto.ValoUnit = Convert.ToDouble(mskValor.Text);
                     produto.UnidadeVenda = cmbUnidedeVendas.Text;
-                    produto.CategoriaId = int.Parse(txtCategoria.Text);
+                    cmbCategoria.SelectedValue = produto.CategoriaId.Id;
                     produto.EstoqueMinimo = Convert.ToDouble(txtEstoqueMinimo.Text);
                     produto.ClasseDesconto = Convert.ToDouble(txtClasseDesconto.Text);
 
@@ -92,13 +100,13 @@ namespace ComercialSys
                 int.Parse(txtId.Text)
               , mskCodigo.Text
               , txtDescricao.Text
-              , Convert.ToDouble(mskValor.Text)
+              , double.Parse(mskValor.Text)
               , cmbUnidedeVendas.Text
-              , Convert.ToInt32(txtCategoria.Text)
+              , Categoria.ObterPorId(Convert.ToInt32(cmbCategoria.SelectedValue))
               , Convert.ToDouble(txtEstoqueMinimo.Text)
               , Convert.ToDouble(txtClasseDesconto.Text)
-              
-              ) ;
+
+              );
             if (produto.Editar(produto.Id))
             {
                 MessageBox.Show($"o Produto {produto.Descricao} foi alterado com sucesso!");
@@ -110,6 +118,19 @@ namespace ComercialSys
 
         }
 
-        
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbUnidedeVendas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 } 

@@ -63,48 +63,27 @@ namespace ComClassSys
 
             return resultado;
         }
-        public static Categoria ObterPorId(int id)
-        {
-            Categoria Categoria = new Categoria();
-            var cmd = Banco.Abrir();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"select * from categorias where id ={id}";
-            var dr = cmd.ExecuteReader();// dr =  DataReader = retorno da consulta (caso haja)
-            while (dr.Read())
-            {
-                // 1ª forma
-                Categoria = new(dr.GetInt32(0)
-                    , dr.GetString(1)
-                    , dr.GetString(2)
-                    );
-            }
-            return Categoria;
-        }
-        public static List<Categoria> ObterLista(string nome = null)
-        {
-            List<Categoria> lista = new List<Categoria>();
-            var cmd = Banco.Abrir();
-            cmd.CommandType = CommandType.Text;
-            if (nome == null)
-            {
-                cmd.CommandText = "select * from categorias";
-            }
-            else
-            {
-                cmd.CommandText = $"select * from categorias where nome like '%{nome}%' order by nome";
-            }
-
-            var dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                lista.Add(new Categoria(
-                                      dr.GetInt32(0),
-                                      dr.GetString(1),
-                                      dr.GetString(2)
-
-                                     ));
-            }
-            return lista;
-        }
+      public static List<Categoria> ObterLista(string nome = null)
+{
+     List<Categoria> lista = new List<Categoria>();
+     var cmd = Banco.Abrir();
+     cmd.CommandType = CommandType.Text;
+     if (nome == null)
+     {
+         cmd.CommandText = "select * from categorias order by nome";
+     }
+     else
+     {
+         cmd.CommandText = $"select * from categorias where nome like '%{nome}%' order by nome";
+     }
+ 
+     var dr = cmd.ExecuteReader();
+     while (dr.Read())
+     { Categoria cat new(dr.GetInt32(0), dr.GetString(1), dr.GetString(2))
+       lista.Add(Categoria);
+     }
+ 
+     return lista;
+}
     }
 }
